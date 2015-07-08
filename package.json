@@ -1,12 +1,12 @@
 {
-  "name": "MultiSocketServer",
+  "name": "MultiSocketServerOne",
   "version": "0.1.0",
   "dependencies": {
-        "socket.io": "latest"
-      , "express": ">= 2.5.9"
+  	"socket.io": "latest", 
+  	"express": "latest"
   },
-  "description": "MultiSocketServer",
-  "main": "hello-world-server.js",
+  "description": "MultiSocketServerOne",
+  "main": "web.js",
   "scripts": {
     "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
   },
@@ -20,3 +20,6 @@
   "license": "MIT",
   "readmeFilename": "README.md"
 }
+
+
+
