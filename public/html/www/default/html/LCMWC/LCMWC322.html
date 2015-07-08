@@ -1,0 +1,62 @@
+<!-- 가입완료 -->
+<script src="js/LCMWC/LCMWC322.js"></script>
+
+<div class="fixed_top">
+	<ul class="step01 step_depth2">
+		<li>약관동의</li>
+		<li class="on">정보확인</li>
+	</ul>
+</div>
+
+<div id="contents" class="wrap_step">
+	<div class="mw01">
+		<h2 class="tit02 mt12">SMS 수수료</h2>
+		<p class="desc01">
+			SMS 본인회원은 월 300원, 가족회원은 월 200원 입니다. (법인 및 체크카드는 SMS 수수료가 무료로 제공됩니다.)<br/>
+		</p>
+		<h2 class="tit02 mt12">정보확인</h2>
+		<fieldset class="sp10 mt12">
+			<legend>카드 인증</legend>
+			<div class="tf01">
+				<table class="tf01">
+				<colgroup>
+					<col style="width:33%;" />
+					<col style="width:auto;" />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th>카드선택</th>
+					<td>
+						<select class="select aView" style="width:100%;" id="LCMWC322_select"></select>
+						<div class="search_combo lc iView" style="display:none">
+							<a onclick="pageObj.iosSelect()" class="select combo2 iosSelect" style="overflow: hidden"></a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>이름</th>
+					<td><span class="lb" id="ur_nm"></span></td>
+				</tr>
+				<tr>
+					<th>전화번호</th>
+					<td><span class="lb" id="cell_no"></span></td>
+				</tr>
+				<tr>
+					<th>결제방법</th>
+					<td>
+						<label class="radio radio_on">포인트 결제</label>
+						<label class="radio ml20">카드결제</label>
+					</td>
+				</tr>
+				</tbody>
+				</table>
+			</div>
+		</fieldset>
+
+		<div class="tc mt30">
+<!-- 			<a href="javascript:commPage('P', 'LCMWC323', '', 'L')" class="btn_31">가입완료</a> -->
+			<a onclick="pageObj.LCMWC322()" class="btn_r31">가입완료</a>
+			<a onclick="pageObj.cancel()" class="btn_31">취소</a>
+		</div>
+	</div>
+</div>

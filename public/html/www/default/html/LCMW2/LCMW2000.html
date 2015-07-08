@@ -1,0 +1,249 @@
+<!-- 쿠폰몰 (메인) -->
+<script src="js/LCMW2/LCMW2000.js"></script>
+
+<div class="main_top excepIos" id="search_div">
+	<div class="search_combo">
+		<select id="grp_select" onchange="pageObj.changeGroup()" class="aView"></select>
+		<div class="search_combo lc iView" style="display:none">
+			<a onclick="pageObj.iosSelect()" id="iosSelect" class="select combo1" style="overflow: hidden">검색</a>
+		</div>
+	</div>
+	<div class="link">
+		<a onclick="pageObj.LCMW2091('http://barobone.com/MOU/LCM/web_init.php');" class="btn_31 btn_g" style="min-width: 0px;">할인쿠폰몰 이동</a>
+	</div>
+</div>
+
+<div id="contents" class="wrap_main">
+	<!-- 보유쿠폰 -->
+	<div class="have_coupon excepIos" id="have_coupon">
+		<div class="have_inner">
+			<div class="figure" onclick="commPage('P', 'LCMW3200')">
+				<img src="images/img/img_my_coupon.png" alt="보유쿠폰" />
+				<div class="new_coupon">
+					<img src="images/img/img_new_coupon.png" alt="보유쿠폰" />
+				</div>
+			</div>
+			
+			<div id="iscroll">
+				<ul id="myCoupon"></ul>
+			</div>
+		</div>
+	</div>
+	<!-- // 보유쿠폰 -->
+
+	<!-- 쿠폰리스트 -->
+	<ul class="main_coupon_list" id="main_coupon_list"></ul>
+	<!-- //쿠폰리스트 -->
+</div>
+
+<!-- 보유 유료 쿠폰 템플릿 -->
+<textarea id="myM12Tmpl" style="display:none;">
+	<li>
+		<div class="coupon cp_dc myM12Detail" id="myM12Div_{TR_ID}">
+			<div>
+				<b class="comp">{BRAND_NAME}<br/>{GOODS_NAME}</b>
+				<em class="price">{SELL_PRICE}</em>
+				<span class="type">할인쿠폰</span>
+			</div>
+		</div>
+	</li>
+	<div id="pop_title_myM12Div_{TR_ID}" style="display:none">할인쿠폰 상세</div>
+	<div id="pop_cont_myM12Div_{TR_ID}" style="display:none">
+		<dl class="dc_coupon">
+			<dt>
+				<figure><img src="{GOODS_IMAGE}" /></figure>
+			</dt>
+			<dd>
+				<strong><span class="pc02">{BRAND_NAME}</span> {GOODS_NAME}</strong>
+			</dd>
+		</dl>
+		
+		<div  class="dc_coupon_info">
+			<ul>
+				<li><strong>브랜드</strong>{BRAND_NAME}</li>
+				<li><strong>판매가</strong><del>{ORIGINAL_PRICE}원</del> <span  class="pc01">{SELL_PRICE}원</span></li>
+				<li><strong>구매일</strong>{TMP_ORDER_DATE}</li>
+				<li><strong>유효기간</strong>{TMP_PERIOD_DATE}</li>
+			</ul>
+			<div class="members_barcord" style="display: none">
+				<img src="http://m.lottecard.co.kr/genbc?type=code128&msg={BARCODE}&fmt=png&height=11&mw=0.18" alt="바코드">
+				<strong>{BARCODE}</strong>
+			</div>
+			<div class="members_barcord" style="font-size: 16px;line-height: 26px;display: none">
+				<div>쿠폰번호</div>
+				<div style="font-weight: bold">{BARCODE}</div>
+			</div>
+		</div>
+
+		<h2 class="tit02 mt20">상품설명</h2>
+		<ul class="desc_bul m10 f13" style="padding: 0 5px 0 10px;"></ul>
+<!-- 		<div style="padding: 15px;">{GOODS_INFO}</div> -->
+	</div>
+</textarea>
+<!-- 보유 유료 쿠폰 템플릿 -->
+
+<!-- 보유 쿠폰 템플릿 -->
+<textarea id="myCouponTmpl" style="display:none;">
+	<li>
+		<div class="coupon myCouponDetail" id="myCpDiv_{CPON_ID}">
+			<div>
+				<b class="comp">{GRPCO_NM}<br/>{TMP_CPON_APY_CND_CN}</b>
+				<em class="price">{FFR_AM}{OFFER_DC}</em>
+<!-- 				<span class="type" id="my_cp_span{CPON_ID}"></span> -->
+				<span class="type">알뜰쿠폰</span>
+			</div>
+		</div>
+	</li>
+	<div id="pop_title_myCpDiv_{CPON_ID}" style="display:none">보유쿠폰 상세</div>
+	<div id="pop_cont_myCpDiv_{CPON_ID}" style="display:none">
+		<div class="p10">
+			<img onclick="viewImg('{CPON_DTL_IMG_PH_NM}');" src="{CPON_DTL_IMG_PH_NM}" style="width:100%" class="line1b"/>
+		</div>
+		
+<!-- 		<div class="desc_box">
+			<strong>알뜰쿠폰 사용안내</strong>
+			<ul class="desc_bul mt10" style="display:{MW_CPON}">
+				<li>본 쿠폰은 '담기' 후 롯데카드를 이용하시면 자동 사용됩니다.</li>
+				<li>
+					쿠폰 이용에 따른 혜택은 [보유쿠폰 상세]화면에 명시된 지급일자에 제공됩니다.<br/>
+					(※ 단, 포인트 즉시 지급 혜택의 경우 카드이용 즉시 지급됩니다.)
+				</li>
+				<li>본 쿠폰은 사용 완료 후 스마트영수증에서 확인 가능합니다.</li>
+			</ul>
+			<ul class="desc_bul mt10" style="display:{CMS_CPON}">
+				<li>본 쿠폰은 '담기' 후 롯데카드를 이용하시면 자동 사용됩니다.</li>
+				<li>쿠폰 이용에 따른 혜택은 [보유쿠폰 상세]화면에 명시된 지급일자에 제공됩니다.</li>
+				<li>본 쿠폰은 이용여부와 관계없이 행사기간 동안 노출됩니다.</li>
+			</ul>
+		</div>
+ -->	</div>
+</textarea>
+<!-- 보유 쿠폰 템플릿 -->
+
+<!-- 메인 화면 미보유 알뜰쿠폰 템플릿 -->
+<textarea id="mainCouponTmpl" style="display:none;">
+	<li>
+		<div class="main_cp" id="main_cp_div{CPON_ID}">
+			<dl>
+				<dt class="mainCouponDetail"  id="mainCp_{CPON_ID}" data-new_mbr_dc="{NEW_MBR_DC}">
+					<div style="height: 19px;  line-height: 19px;"><img src="{RELCO_IMG_PH_NM}"/></div>
+					<strong>{FFR_AM}<span>{OFFER_DC}</span></strong>
+					<span class="tit">{CPON_APY_CND_CN}</span>
+					<span class="price ellipsis time_ico">{TMP_CPON_EDT} 까지</span>
+				</dt>
+				<dd>
+					<strong id="main_cp_span{CPON_ID}">알뜰쿠폰</strong>
+					<em id="main_cp_em{CPON_ID}"><a onclick="pageObj.LCMW2020('{CPON_ID}')" class="btn_down">쿠폰다운</a></em>
+				</dd>
+			</dl>
+		</div>
+	</li>
+	
+	<div id="pop_title_mainCp_{CPON_ID}" style="display:none">알뜰쿠폰 상세</div>
+	<div id="pop_cont_mainCp_{CPON_ID}" style="display:none">
+		<div class="tc f15" id="firstCpn" style="display:none;margin-top: 64px;">
+			<strong>신규가입 알뜰 쿠폰이 발급되었습니다.<br/>쿠폰을 담아 혜택을 받으세요.</strong>
+		</div>
+		<div class="p10">
+			<img onclick="viewImg('{CPON_DTL_IMG_PH_NM}');" src="{CPON_DTL_IMG_PH_NM}" style="width:100%" class="line1b"/>
+		</div>
+		
+		<div class="tc f15 mt10">
+			<strong>선택한 알뜰쿠폰을 담으시겠습니까?</strong>
+		</div>
+	</div>
+</textarea>
+<!-- 메인 화면 미보유 알뜰쿠폰 템플릿 -->
+<!-- 메인 화면 보유 알뜰쿠폰 템플릿 -->
+<textarea id="mainCouponPickTmpl" style="display:none;">
+	<li>
+		<div class="main_cp">
+			<dl>
+				<dt class="mainCouponDetailPick" id="mainCp_{CPON_ID}">
+					<div style="height: 19px;  line-height: 19px;"><img src="{RELCO_IMG_PH_NM}"/></div>
+					<strong>{FFR_AM}<span>{OFFER_DC}</span></strong>
+					<span class="tit">{CPON_APY_CND_CN}</span>
+					<span class="price ellipsis time_ico">{TMP_CPON_EDT} 까지</span>
+				</dt>
+				<dd>
+<!-- 					<strong id="main_cp_span{CPON_ID}"></strong> -->
+					<strong >알뜰쿠폰</strong>
+					<em><span class="my_cp">보유쿠폰</span></em>
+				</dd>
+			</dl>
+		</div>
+	</li>
+	
+	<div id="pop_title_mainCp_{CPON_ID}" style="display:none">보유쿠폰 상세</div>
+	<div id="pop_cont_mainCp_{CPON_ID}" style="display:none">
+		<div class="p10">
+			<img onclick="viewImg('{CPON_DTL_IMG_PH_NM}');" src="{CPON_DTL_IMG_PH_NM}"  class="line1b" style="width:100%" />
+		</div>
+		
+<!-- 		<div class="desc_box">
+			<strong>알뜰쿠폰 사용안내</strong>
+			<ul class="desc_bul mt10" style="display:{MW_CPON}">
+				<li>본 쿠폰은 '담기' 후 롯데카드를 이용하시면 자동 사용됩니다.</li>
+				<li>
+					쿠폰 이용에 따른 혜택은 [보유쿠폰 상세]화면에 명시된 지급일자에 제공됩니다.<br/>
+					(※ 단, 포인트 즉시 지급 혜택의 경우 카드이용 즉시 지급됩니다.)
+				</li>
+				<li>본 쿠폰은 사용 완료 후 스마트영수증에서 확인 가능합니다.</li>
+			</ul>
+			<ul class="desc_bul mt10" style="display:{CMS_CPON}">
+				<li>본 쿠폰은 '담기' 후 롯데카드를 이용하시면 자동 사용됩니다.</li>
+				<li>쿠폰 이용에 따른 혜택은 [보유쿠폰 상세]화면에 명시된 지급일자에 제공됩니다.</li>
+				<li>본 쿠폰은 이용여부와 관계없이 행사기간 동안 노출됩니다.</li>
+			</ul>
+		</div>
+ -->	</div>
+</textarea>
+<!-- 메인 화면 보유 알뜰쿠폰 템플릿 -->
+
+<!-- 쿠폰 담기 후 바뀐 상세화면 템플릿 -->
+<textarea id="imgSrcTmpl" style="display:none;">
+	<div class="p10">
+		<img onclick="viewImg('{CPON_DTL_IMG_PH_NM}');" src="{CPON_DTL_IMG_PH_NM}" class="line1b" alt="" style="width:100%" />
+	</div>
+	
+<!-- 	<div class="desc_box">
+		<strong>알뜰쿠폰 사용안내</strong>
+		<ul class="desc_bul mt10" style="display:{MW_CPON}">
+			<li>본 쿠폰은 '담기' 후 롯데카드를 이용하시면 자동 사용됩니다.</li>
+			<li>
+				쿠폰 이용에 따른 혜택은 [보유쿠폰 상세]화면에 명시된 지급일자에 제공됩니다.<br/>
+				(※ 단, 포인트 즉시 지급 혜택의 경우 카드이용 즉시 지급됩니다.)
+			</li>
+			<li>본 쿠폰은 사용 완료 후 스마트영수증에서 확인 가능합니다.</li>
+		</ul>
+		<ul class="desc_bul mt10" style="display:{CMS_CPON}">
+			<li>본 쿠폰은 '담기' 후 롯데카드를 이용하시면 자동 사용됩니다.</li>
+			<li>쿠폰 이용에 따른 혜택은 [보유쿠폰 상세]화면에 명시된 지급일자에 제공됩니다.</li>
+			<li>본 쿠폰은 이용여부와 관계없이 행사기간 동안 노출됩니다.</li>
+		</ul>
+	</div>
+ --></textarea>
+<!-- 쿠폰 담기 후 바뀐 상세화면 템플릿 -->
+
+<!-- 유료쿠폰 템플릿 -->
+<textarea id="m12Tmpl" style="display:none;">
+	<li>
+		<div class="main_cp dc_cp" id="main_cp_dc_cp{GOODS_CODE}" onclick="pageObj.dcCoupon('{GOODS_CODE}')">
+			{ARR_LABEL}
+			<dl>
+				<dt>
+					<figure><img src="{BRAND_LOGO}"/></figure>
+					<strong>{SALE}<span>%off</span></strong>
+					<span class="tit ellipsis">{GOODS_NAME}</span>
+					<span class="price" style="color:#fc3d39; font-weight: bold">{SELL_PRICE_C}원 <del>{ORIGINAL_PRICE_C}원</del></span>
+					<span class="desc">이 쿠폰은 유료쿠폰으로<br />할인쿠폰몰로 이동됩니다.</span>
+				</dt>
+				<dd>
+					<strong>할인쿠폰</strong><em>Buy</em>
+					<a onclick="pageObj.LCMW2091('{ORDER_URL}')" class="btn_d28 btn_small btn_buy">구매하기</a>
+				</dd>
+			</dl>
+		</div>
+	</li>
+</textarea>
+<!-- 유료쿠폰 템플릿 -->

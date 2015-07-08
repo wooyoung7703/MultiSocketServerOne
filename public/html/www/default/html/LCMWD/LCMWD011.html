@@ -1,0 +1,187 @@
+<!-- 모바일 명세서 -->
+<script src="js/LCMWD/LCMWD011.js"></script>
+
+<div id="contents">
+	<div class="desc_both">
+		<h2 class="tit02">명세일자별 조회</h2>
+		<div class="search_combo arrow mt10 aView">
+			<select id="rsblllist" onchange="pageObj.changeDate();"></select>
+		</div>
+		<div class="search_combo lc iView" style="margin: 10px 0 5px 0;display:none">
+			<a onclick="pageObj.iosSelect()"  id="iosSelect" class="select combo2" style="overflow: hidden;"></a>
+		</div>
+	</div>
+
+
+	<div class="tf01 m10">
+		<table class="f14">
+		<colgroup>
+			<col style="width:35%;">
+			<col style="width:auto;">
+		</colgroup>
+		<tbody>
+		<tr>
+			<th>이용금액</th>
+			<td class="tr"><strong class="lb"><span class="pc01" id="sumTotalBll"></span> 원</strong></td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+
+	<div class="grid01 mt10">
+		<table>
+		<colgroup>
+			<col style="width:18%;">
+			<col style="width:auto;">
+			<col style="width:30%;">
+			<col style="width:20%;">
+		</colgroup>
+		<thead>
+		<tr>
+			<th>구분</th>
+			<th>결제계좌</th>
+			<th>결제금액</th>
+			<th>선택</th>
+		</tr>
+		</thead>
+		<tbody id="rsBllListDtl"></tbody>
+		</table>
+	</div>
+
+	<ul class="list_acc bill_list">
+		<li class="list_acc_li">
+			<a >이용내역 요약</a>
+			<div>
+				<!-- 이용내역 요약 -->
+				<div class="grid01">
+					<table>
+					<colgroup>
+						<col style="width:20%;">
+						<col style="width:34%;">
+						<col style="width:auto;">
+					</colgroup>
+					<thead>
+					<tr>
+						<th colspan="2" class="tc">이용내역</th>
+						<th class="tc">금액</th>
+					</tr>
+					</thead>
+					<tbody id="mobileBill"></tbody>
+					</table>
+				</div>
+				<!-- //이용내역 요약 -->
+			</div>
+		</li>
+	</ul>
+
+	<div class="tf01 m10" id="billDate">
+		<table>
+		<colgroup>
+			<col style="width:46%;">
+			<col style="width:auto;">
+		</colgroup>
+		<tbody>
+		<tr>
+			<th style="padding-right: 0; height:35px;">일시불/할부 이용기간</th>
+			<td style="padding-left: 0" class="tr pc02"><span class="lb"></span></td>
+		</tr>
+		<tr>
+			<th style="padding-right: 0; height:35px;">단기카드대출<br>(현금서비스)사용기간</th>
+			<td style="padding-left: 0" class="tr pc02"><span class="lb"></span></td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+
+	<div class="tc mt10">
+		<a class="btn_31" onclick="pageObj.LCMWD021();">상세내역</a>
+	</div>
+	
+	<dl class="guide_box">
+		<dt><a >이용안내를 꼭 확인해 주시기 바랍니다.</a></dt>
+		<dd>
+			<ul class="desc_bul">
+				<li>출처가 불분명하거나 보안설정이 없는 무선랜(WiFi)은 사용하지 마시고, 이동통신망(3G, 4G 등)을 이용하시기 바랍니다. 단, 가입하신 요금제에 따라 데이터 사용요금이 부과될 수 있습니다.</li>
+				<li>WiFi나 이동통신망 속도가 느릴 경우, 홈페이지(<a onclick="webPage('www.lottecard.co.kr')">www.lottecard.co.kr</a>) 또는 상담 ARS 1588-8100 서비스를 이용하시기 바랍니다.</li>
+				<li>금융서비스, 즉시결제 등의 서비스를 사용하시는 중에 서버통신 오류 등이 발생할 경우, 홈페이지에서 처리내역을 반드시 확인하시기 바랍니다.</li>
+				<li>이용에 대한 자세한 내역은 롯데카드 홈페이지(<a onclick="webPage('www.lottecard.co.kr')">www.lottecard.co.kr</a>)에서 확인하실 수 있습니다.</li>
+			</ul>
+		</dd>
+	</dl>
+	
+</div>
+
+<textarea id="rsBllListDtlTmpl" style="display:none;">
+	<tr>
+		<td style="border-right: 1px solid #e7e9eb;">{accno_dc_nm}</td>
+		<td style="border-right: 1px solid #e7e9eb;" class="pc02 f11">{bnk_nm}  {acno_mask}</td>
+		<td style="border-right: 1px solid #e7e9eb;" class="tr">{tmp_sum_amt}</td>
+		{tmp_bll_unit_no}
+<!-- 		<td class="tc"><label class="radio radio_on" data-bll_unit_no="{bll_unit_no}"></label></td> -->
+	</tr>
+</textarea>
+
+<textarea id="mobileBillTmpl" style="display:none;">
+	<tr>
+		<td rowspan="3">지난달</td>
+		<td>미입금액</td>
+		<td class="tr">{dlq_prn_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>연체료</td>
+		<td class="tr">{dqfe_new_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>소계</td>
+		<td class="tr">{sumdlq_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td rowspan="8">이번달</td>
+		<td>할부</td>
+		<td class="tr">{int_u_am_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>장기카드대출<br>(카드론)</td>
+		<td class="tr">{cln_u_am_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>일시불</td>
+		<td class="tr">{pif_u_am_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>단기카드대출<br>(현금서비스)</td>
+		<td class="tr">{cs_u_am_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>제수수료</td>
+		<td class="tr">{fe_new_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>연회비</td>
+		<td class="tr">{afe_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>일부결제금액<br>이월약정<br>해지잔액</td>
+		<td class="tr">{thm_rvo_am_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td>소계</td>
+		<td class="tr">{sumthis_toCurrency} 원</td>
+	</tr>
+	<tr>
+		<td colspan="2">취소 &middot; 선납금액</td>
+		<td class="tr">{pia_am_toCurrency} 원</td>
+	</tr>
+	<tr class="f13 bg_g">
+		<td colspan="2">합계(이번달+지난달)</td>
+		<td class="tr"><strong class="pc01">{sumtotal_toCurrency}</strong> 원</td>
+	</tr>
+	<tr id="min_stt_am">
+		<td colspan="2">최소결제금액</td>
+		<td class="tr">{min_stt_am_toCurrency} 원</td>
+	</tr>
+	<tr id="chk_cd_u">
+		<td colspan="2">체크카드 기출금액</td>
+		<td class="tr">{chk_cd_u_am_toCurrency} 원</td>
+	</tr>
+</textarea>

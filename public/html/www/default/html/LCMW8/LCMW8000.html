@@ -1,0 +1,53 @@
+<!-- 캐시비 / 기프트 -->
+<script src="js/LCMW8/LCMW8000.js"></script>
+
+<div id="contents">
+
+	<h2 class="tit01">기프트카드 잔액조회</h2>
+	<div class="cashbee">
+		<img src="images/img/giftcard_red.png" alt="" />
+	</div>
+	
+	<!-- 조회 -->
+	<h3 class="tit02 mt15 both">
+		<strong class="left">카드번호</strong>
+		<strong class="right">잔액 : <b class="pc01" id="balance">0</b>원</strong>
+	</h3>
+		
+	<fieldset class="sp10 mt5">
+		<legend>기프트카드 잔액조회</legend>
+		<div class="tf01">
+			<table>
+			<colgroup>
+				<col style="width:100%;" />
+			</colgroup>
+			<tbody>
+			<tr>
+				<td>
+					<div id="disp_giftcard" style="width:100%;" class="ip_txt tran_gray" onclick="openMtrnKeyboard(this, 'num', '16', '16', '카드번호 16자리를 정확히 입력해 주십시오.', '카드번호 16자리를 초과하였습니다.')">카드번호 16자리</div>
+<!-- 					<input id="disp_giftcard" type="text" class="ip_txt" onclick="openMtrnKeyboard(this, 'num', '16', '16', '카드번호 16자리를 정확히 입력해 주십시오.', '카드번호 16자리를 초과하였습니다.')" readonly="readonly" placeholder="카드번호 16자리" style="width:100%;" /> -->
+					<input type="hidden" id="giftcard"/>
+					<input type="hidden" id="tk_giftcard"/>	
+				</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</fieldset>
+	
+	<div class="tc mt15">
+		<a onclick="pageObj.LCMW8000();" class="btn_31" id="giftSearch">조회하기</a>
+	</div>
+	<!-- //조회 -->
+	
+
+	<div id="cashbee" style="display:none">
+		<h2 class="tit01 bt mt20">캐시비</h2>
+		<div class="cashbee">
+			<img src="images/img/img_cashbee.png" alt="" />
+			<div class="mt20">
+				<a id="btn_cashbee" class="btn_31">캐시비 충전</a>
+			</div>
+		</div>
+	</div>
+</div>

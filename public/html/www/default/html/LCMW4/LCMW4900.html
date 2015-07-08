@@ -1,0 +1,139 @@
+<!-- 스마트 영수증-->
+<script src="js/LCMW4/LCMW4900.js"></script>
+
+
+<div id="contents">
+	<div id="sample_receipt" style="display: none;">
+		<img src="images/img/img_receipt.png" style="width: 100%;padding-top: 20px;"/>
+		<dl class="msg_dl">
+			<dt>
+				<strong class="tit">
+					SMS서비스 미신청 회원이십니다.
+				</strong>
+			</dt>
+			<dd id="joinsms">
+				<strong class="tit">SMS서비스 안내</strong>
+				<p>카드 이용 안내 정보를 등록한 휴대폰으로<br />실시간 전송해 드리는 서비스 입니다. SMS 문자<br />발송을 통해 신용카드 도난, 분실로 인한 금융사고를<br />방지할 수 있습니다.</p>
+				<p>SMS 가입 시 클러치에서 제공하는 '스마트영수증'도 함께 받아보실 수 있습니다.</p>
+				<div class="mt15 tc">
+					<a onclick="commPage('P', 'LCMWC321', '', 'L')" class="btn_31">SMS 서비스 신청</a>
+					<a onclick="pageObj.cancel()" class="btn_31 btn_g">나중에 하기</a>
+				</div>
+			</dd>
+			<dd>
+				<strong class="tit">'스마트 영수증' 이란?</strong>
+				<p>기존SMS 서비스보다 이런 점이 좋아요!</p>
+				<ol>
+					<li><em class="pc02">하나.</em>사용시마다 L.POINT 정보와 이용내역 실시간 알림은 기본!</li>
+					<li><em class="pc02">둘.</em>사용처 주변의 이벤트 정보와 카드 혜택 알림!</li>
+					<li><em class="pc02">셋.</em>실물 영수증 모양으로 영구 보관 및 언제든 조회 가능!</li>
+	    			<li>스미싱 등 불법 SMS와 구별되어 보다 안전함!</li>
+				</ol>
+			</dd>
+		</dl>
+	</div>
+	<div class="smart_receipt" id="smart_receipt" style="display: none">
+		<dl>
+			<dt>
+				<strong id="mc_nm"></strong>
+<!-- 				<a onclick="callNtv(null, null, 'DevicePlugin','screenEmail',null)" class="btn_share">공유</a> -->
+			</dt>
+			<dd>
+				<ul>
+					<li><strong>가맹점전화</strong><span id="mc_w_tlno"></span></li>
+					<li><strong>주소</strong><span id="pnadd"></span></li>
+					<li><strong>승인번호</strong><span id="aprno"></span></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<ul class="detail">
+			<li>
+				<strong>결제금액</strong>
+				<div class="tr" id="apr_am"></div>
+			</li>
+			<li>
+				<strong>결제시간</strong>
+				<div class="tr" id="apr_dt_ti"></div>
+			</li>
+			<li class="point" id="smart_point">
+				<strong>L.POINT</strong>
+				<dl>	
+					<dt>사용가능 포인트</dt><dd id="u_psb_pt" class="smart_point"></dd>
+				</dl>
+				<dl>	
+					<dt>잔여 포인트</dt><dd id="acu_rv_pt" class="smart_point"></dd>
+				</dl>
+			</li>
+			<!-- 멤버스 정보제공 미동의 사용자의 경우 안내문구 숨김 처리 -->
+			<li id="mem_txt_point" style="display:none; " onclick="pageObj.callPhone();">
+				<dl>
+					<dt style="width:100%;text-align:justify;">※ 롯데멤버스 정보제공 미동의 고객님께는 포인트 조회가 제공되지 않습니다. 자세한 문의는 롯데카드 고객센터를 이용해 주십시요. (☎ <a href="tel:1588-8100" style="color: blue;text-decoration: underline;">1588-8100</a>)</dt>
+				</dl>
+			</li>
+			<li class="benefit" id="smart_benefit" style="display:none">
+				<dl>
+					<dt style="margin-bottom: 10px">클러치가 고객님께 드리는 혜택</dt>
+				</dl>
+			</li>
+			<li class="benefit" id="smart_stamp" style="display:none">
+				<dl>
+					<dt style="margin-bottom: 10px">스탬프 적립안내</dt>
+				</dl>
+			</li>
+			<li id="cm_type">
+				<strong>결제수단</strong>
+				<div class="tr" id="cd_pd_knd_nm"></div>
+			</li>
+		</ul>
+		
+		<div class="btns" id="smart_card_info" style="display:none">
+			<p class="sub_desc" id="cd_epl_smr_cn"></p>
+			<span class="right">
+				<a class="btn_d28 btn_small btn_cancel" onclick="pageObj.cardDetail()">카드혜택</a>
+			</span>
+		</div>
+
+<!-- 		<div class="banner" id="smart_banner" style="display:none">
+			<a onclick="pageObj.eventDetail()"><img src="" alt="" /></a>
+		</div>
+ -->
+ 	</div>
+ 	
+	<div class="desc_box mt10" style="display:none">
+		<!--  
+		<h2 class="tit_card">롯데 앱카드란?</h2>
+		-->
+		<ul class="desc_bul">
+			<li>Push 수신을 원치 않으시는 경우 눌러주세요. </li>
+			<li><a onclick="commPage('P', 'LCMWB300')"><strong>Push 설정하기</strong></a></li>
+		</ul>
+	</div>
+	
+	<div class="tc mt20" id="btn_ok" style="display:none;">
+		<a onclick="jq('#leftBtn').click();" class="btn_31">확인</a>
+	</div>
+	<div id="smart_cf" style="padding-top: 44px;width: 100%;height: 100%;position: fixed;top: 0;z-index: 101;background: #ededed;display: none;">
+		<div style="width: 100%;padding-top: 20px;text-align: center;">
+			<div>
+				<img id="smart_event" src="" style="width: 75%;border: 1px solid black;max-width: 340px;max-height: 340px;">
+			</div>
+			
+			<div class="gift_loading">
+				<div class="ico_gift">
+					<span class="loading progress"></span>
+				</div>
+				<p class="m01 progress" style="padding-top: 20px;"><span class="pc01">스마트영수증</span>이 발급중입니다.</p>
+				
+				<div class="m02">
+					<p style="color: #808080;font-size: 12px;font-weight: bold;">&nbsp;</p>
+					<p style="color: #808080;font-size: 12px;font-weight: bold;">&nbsp;</p>
+					<a class="btn_31" onclick="pageObj.showSmartReceipt(true)">스마트영수증 바로가기</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="smart_label" style="position: fixed;top: 70%;z-index: 101;display:none" onclick="pageObj.showSmartReceipt(false)">
+		<img src="images/btn/btn_ad_slide_n.png" style="width: 40px;">
+	</div>
+</div>

@@ -1,0 +1,63 @@
+<!-- My wallet - 스탬프 상세-->
+<script src="js/LCMW3/LCMW3320.js"></script>
+
+<div class="fixed_top">
+	<ul class="sub_nav sub_nav_depth2" id="stamp_nav">
+		<li><a onclick="pageObj.stampDetail('event');" class="on">이벤트 상세</a></li>
+		<li><a onclick="pageObj.stampDetail('history');">적립 내역</a></li>
+	</ul>
+</div>
+
+<div id="contents" class="wrap_sub_nav">
+	<!-- 스탬프 상세 이벤트 -->
+	<div id="div_event" class="lcmw3220">
+		<div class="tit_news">
+			<h2 class="tit"></h2>
+			<small></small>
+		</div>
+		<div class="p10 mt5">
+			<img style="width:100%" class="line1b"/>
+		</div>
+		<div class="btn_stamp">
+		</div>
+	</div>
+	<!-- 스탬프 상세 이벤트 -->
+	
+	<!-- 스탬프 상세 적립내역 -->	
+	<div id="div_history" class="lcmw3220" style="display:none"></div>
+	<!-- 스탬프 상세 적립내역 -->
+</div>
+<textarea id="dataTmpl" style="display:none;">
+	<div style="margin-bottom: 20px;">
+		<div class="total_box" style="line-height: 20px;">
+			<div class="both">
+				<strong class="left">{TMP_APY_TN}</strong>
+			</div>
+  			<div class="both">
+				<strong class="left">총 적립내역 : {TMP_STAMP_SIZE}</strong>
+			</div>
+			<div class="both">
+				<strong class="left">혜택지급 : {TMP_FFR_DSB}</strong>
+			</div>
+<!-- 			<div class="both"> -->
+<!-- 				<strong class="left">{TMP_BD_RV_LM_AM}</strong> -->
+<!-- 			</div> -->
+		</div>
+		
+		<div class="grid01 mt5">
+			<table>
+				<colgroup>
+					<col style="width:35%;">
+					<col style="width:auto;">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>날짜</th>
+						<th>적립 내역</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+</textarea>

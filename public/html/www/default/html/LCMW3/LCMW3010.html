@@ -1,0 +1,26 @@
+<!-- My wallet - 앱카드 결제 비밀번호 -->
+<script src="js/LCMW3/LCMW3010.js"></script>
+
+<div id="contents">
+	<div class="sp20">
+		<p class="desc01">
+			앱카드(간편결제)에서 설정하신 결제 비밀번호 6자리를 입력해주세요.
+		</p>
+		
+		<div class="gbox">
+			<div id="disp_ctf_pswd" class="ip_txt ip_txt_large tran_gray10" style="width:100%;" onclick="openMtrnKeyboard(this, 'num', '6', '6', '비밀번호 6자리를 입력하셔야 합니다.', '비밀번호 6자리를 초과했습니다.', pageObj.LCMW3010)">앱카드 비밀번호 6자리 입력</div>
+<!-- 			<input id="disp_ctf_pswd" type="text" class="ip_txt ip_txt_large" style="width:100%" placeholder="앱카드 비밀번호 6자리 입력" onclick="openMtrnKeyboard(this, 'num', '6', '6', '비밀번호 6자리를 입력하셔야 합니다.', '비밀번호 6자리를 초과했습니다.', pageObj.LCMW3010)" readonly="readonly"/><br/> -->
+			<input type="hidden" id="ctf_pswd"/>
+			<input type="hidden" id="tk_ctf_pswd"/>
+		</div>
+		
+<!-- 		<div class="tc mt20"> -->
+<!-- 			<a id="nextBtn" onclick="pageObj.LCMW3010()" class="btn_31">앱카드 로그인</a> -->
+<!-- 		</div> -->
+	</div>
+	<ul class="desc_bul02 mt20">
+		<li>고객님의 모든 정보는 암호화되어 안전하게 서비스를 이용하실 수 있습니다.</li>
+		<li>결제비밀번호를 누적 5회 오류 입력 시 앱카드(간편결제) 앱이 잠금상태로 변환되니 주의하시기 바랍니다.</li>
+		<li>앱카드(간편결제) 앱이 잠금상태로 변환이 되면 본인인증 절차를 진행해야 잠김해제가 가능합니다</li>
+	</ul>
+</div>

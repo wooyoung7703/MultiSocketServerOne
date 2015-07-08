@@ -1,0 +1,27 @@
+<!-- My wallet - 앱카드 추가 -->
+<script src="js/LCMW3/LCMW3020.js"></script>
+
+<div id="contents">
+	
+	<h2 class="tit01">보유카드 리스트</h2>
+	<ul class="list01 list_appcard" id="card_list"></ul>
+
+	<ul class="desc_bul m10">
+		<li>1장의 카드만 주카드로 설정이 되며, 설정 된 카드는 첫번째로 노출이 됩니다.</li>
+	</ul>
+
+	<div class="tc mt20">
+		<a onclick="pageObj.addAppCard()" class="btn_31">등록하기</a>
+	</div>
+</div>
+
+<textarea id="dataTmpl" style="display:none;">
+	<li>
+		<label class="radio" id="{ENCRYPT_CDNO},{CARD_CLASS_CODE},{LOTTE_EMP_DC},{BRAND},{MASKING_CDNO}" onclick="pageObj.chkRadio(this);"></label>
+		<figure><img src="{CD_IMG_NM}" style="width:80px;"/></figure>
+		<div>
+			<strong>{CD_NM}</strong><br/>
+			<small>{MASKING_CDNO}</small>
+		</div>
+	</li>
+</textarea>

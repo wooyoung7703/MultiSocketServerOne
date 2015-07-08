@@ -1,0 +1,55 @@
+<!-- 비밀번호 재설정 -->
+<script src="js/LCMWC/LCMWC410.js"></script>
+
+<div class="fixed_top">
+	<ul class="step01">
+		<li>본인인증</li>
+		<li class="on">비밀번호 입력</li>
+	</ul>
+</div>
+<div id="contents" class="wrap_step">
+	<div class="mw01">
+		<div class="desc01">
+			롯데카드 클러치 비밀번호를 설정하시기 바랍니다.<br />
+			입력하신 비밀번호는 클러치 이용 시 본인인증 수단으로 사용하게 됩니다.
+		</div>
+
+		<h2 class="tit02 mt20">비밀번호 설정</h2>
+		<fieldset class="sp10 mt12">
+			<legend>비밀번호 설정</legend>
+			<div  class="tf01">
+				<table>
+					<colgroup>
+						<col style="width:30%;" />
+						<col style="width:auto;" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>비밀번호 설정</th>
+							<td>
+								<div id="disp_loginPwd" class="ip_txt tran_gray" style="width:100%;" onclick="openMtrnKeyboard(this, 'num', '4', '4', '비밀번호 4자리를 입력 하셔야 합니다.', '비밀번호 4자리를 초과하였습니다.', pageObj.nextChk, true)">숫자 4자리를 입력하세요</div>
+<!-- 								<input id="disp_loginPwd" type="text" class="ip_txt" style="width:100%" placeholder="숫자 4자리를 입력하세요" onclick="openMtrnKeyboard(this, 'num', '4', '4', '비밀번호 4자리를 입력 하셔야 합니다.', '비밀번호 4자리를 초과하였습니다.', pageObj.nextChk, true)" readonly="readonly"/> -->
+								<input type="hidden" id="loginPwd">
+								<input type="hidden" id="tk_loginPwd">
+							</td>
+						</tr>
+						<tr>
+							<th>비밀번호 확인</th>
+							<td>
+								<div id="disp_chkPwd" class="ip_txt tran_gray" style="width:100%;" onclick="openMtrnKeyboard(this, 'num', '4', '4', '비밀번호 4자리를 입력 하셔야 합니다.', '비밀번호 4자리를 초과하였습니다.', pageObj.nextChk, true)">숫자 4자리를 입력하세요</div>
+<!-- 								<input id="disp_chkPwd" type="text" class="ip_txt" style="width:100%" placeholder="숫자 4자리를 입력하세요" onclick="openMtrnKeyboard(this, 'num', '4', '4', '비밀번호 4자리를 입력 하셔야 합니다.', '비밀번호 4자리를 초과하였습니다.', pageObj.nextChk, true)" readonly="readonly"/> -->
+								<input type="hidden" id="chkPwd">
+								<input type="hidden" id="tk_chkPwd">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</fieldset>
+
+		<div class="tc mt30">
+			<a class="btn_31" id="joinComplete" onclick="pageObj.LCMWC300();">설정완료</a>
+			<a onclick="pageObj.cancel()" class="btn_31">취소</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,60 @@
+<!-- 약관동의(회원가입) -->
+<script src="js/LCMWC/LCMWC100.js"></script>
+
+<div class="fixed_top">
+	<ul class="step01 step_depth3">
+		<li class="on">약관동의</li>
+		<li>본인인증</li>
+		<li>비밀번호설정</li>
+	</ul>
+</div>
+
+<div id="contents" class="wrap_step">
+	<div class="mw01">
+		<p class="desc01">
+			롯데카드 클러치 회원님의 원활한 서비스 이용을 위하여 이용약관, 개인정보 취급방침, 광고 수신 동의를 받고 있습니다.
+		</p>
+		
+		<div class="tit_both mt20">
+			<h3 class="tit02 mt5 left">롯데카드 클러치 약관동의</h3>
+			<span class="right mr10" onclick="pageObj.nextChk();">
+				<label class="check check_right" id="allCheck" onclick="allCheckBox();">전체 동의</label>
+			</span>
+		</div>
+		
+		<fieldset class="sp10 mt12">
+			<legend>롯데카드 클러치 약관동의</legend>
+			<div class="tf01">
+				<table>
+					<colgroup>
+						<col style="width:60%;" />
+						<col style="width:auto;" />
+					</colgroup>
+					<tbody id="agreeList"></tbody>
+				</table>
+			</div>
+		</fieldset>
+
+		<div class="tc mt30">
+			<a id="nextBtn" class="btn_31" onclick="pageObj.next()">다음</a>
+			<a onclick="pageObj.cancel()" class="btn_31">취소</a>
+		</div>
+	</div>
+</div>
+
+<textarea id="dataTmpl" style="display:none;">
+	<tr>
+		<th>{PRV_SUB_NM}</th>
+		<td class="tr">
+			<a class="btnGrayB" onclick="LCMWC150('{GRP_ID}', '{PRV_SEQ}', '{PRV_VER_NO}')">약관보기</a>
+			<label class="check check_right chk_check" onclick="pageObj.nextChk()">
+				<input type="hidden" value="{PRV_SEQ}"/>
+				<input type="hidden" value="{PRV_VER_NO}"/>
+				<input type="hidden" value="{PRV_AG_MYN}"/>
+				<input type="hidden" value="{PRV_SUB_NM}"/>
+				<input type="hidden" value="{GRP_ID}"/>
+			</label>
+		</td>
+	</tr>
+</textarea>
+

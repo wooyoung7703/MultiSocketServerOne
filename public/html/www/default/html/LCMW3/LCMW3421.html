@@ -1,0 +1,67 @@
+<!-- My wallet - 바로결제 바코드 -->
+<script src="js/LCMW3/LCMW3421.js"></script>
+
+<div id="contents" class="quick_payment">
+	<!-- 결제카드 -->
+	<dl class="card_box" id="barcode_app" style="display: none">
+		<dt><h2 class="tit appcard"></h2></dt>
+		<dd style="padding:10px">
+			<div class="left">
+				<ul>
+					<li><strong>카드번호</strong> </li>
+					<li><strong>유효기간</strong> 89/11</li>
+				</ul>
+				<p class="time"> 결제 유효시간 <span class="pc01"></span></p>
+			</div>
+			<div class="right">
+				<dl>
+					<dt>서명 <span>|</span> <span id="ur_nm" style="color: black"></span></dt>
+					<dd><img src=""/></dd>
+				</dl>
+			</div>
+		</dd>
+		<dd>
+			<div class="members_barcord">
+				<img src="" alt="바코드" style="width: 100%;max-width: 405px">
+				<strong></strong>
+			</div>
+		</dd>
+	</dl>
+	<!-- //결제카드 -->
+	
+	<!-- 멤버십 -->
+	<div id="barcode_mem" style="display: none"></div>
+	<!-- //멤버십 -->
+	
+	<!-- 쿠폰 -->
+	<div id="barcode_cpn" style="display: none"></div>
+	<!-- //쿠폰 -->
+</div>
+
+<textarea id="dataTmpl" style="display:none;">
+	<dl class="card_box">
+		<dt>
+			<h2 class="tit"><span class="{titleClass}"><img style="vertical-align: text-top;" src="{titleImg}"/></span> {title}</h2>
+		</dt>
+		<dd>
+			<div class="members_barcord">
+				<img src="http://m.lottecard.co.kr/genbc?type=code128&msg={barcode}&fmt=png&height=11&mw=0.18" alt="바코드">
+				<strong>{barcode}</strong>
+			</div>
+		</dd>
+	</dl>
+</textarea>
+
+<textarea id="smsTmpl" style="display:none;">
+	<dl class="card_box">
+		<dt>
+			<h2 class="tit"><span class="{titleClass}"><img style="vertical-align: text-top;" src="{titleImg}"/></span> {title}</h2>
+		</dt>
+		<dd>
+			<div class="members_barcord" style="font-size: 16px;line-height: 26px;">
+				<div>쿠폰번호</div>
+				<strong>{barcode}</strong>
+			</div>
+		</dd>
+	</dl>
+</textarea>

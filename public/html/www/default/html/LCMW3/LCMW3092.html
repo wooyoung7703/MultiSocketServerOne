@@ -1,0 +1,109 @@
+<!-- 카드인증 -->
+<script src="js/LCMW3/LCMW3092.js"></script>
+
+<div id="contents" class="wrap_appcard_step">
+	<div class="mw01">
+		<fieldset class="sp10 mt12">
+			<legend>카드 인증</legend>
+			<div class="tf01">
+				<table class="tf01">
+                    <colgroup>
+                        <col style="width:33%;" />
+                        <col style="width:auto;" />
+                    </colgroup>
+                    <tbody>
+                        <th>카드번호</th>
+                        <td>
+                            <div id="disp_cardNum" class="ip_txt_cd21" style="width:90%;" onclick="openMtrnKeyboard(this, 'num', '15', '16', '카드번호를 정확히 입력해 주십시오', '카드번호 16자리를 초과했습니다.', pageObj.nextChk)"></div>
+                            <input type="hidden" id="cardNum" value=""/>
+                            <input type="hidden" id="deCryptCardNum" value=""/>
+                            <input type="hidden" id="tk_cardNum" value=""/>
+                            <div  class="dash" style="padding-top: 5px;clear: both;width:initial; text-align:left">
+                                ※ 카드 번호 15 또는 16자리 입력
+                            </div>
+                            </tr>
+                            <!-- CVC -->
+                            <tr class="cvc">
+                                <th>CVC번호</th>
+                                <td>
+                                    <div id="disp_cvcNum" class="ip_txt_cd21" style="width:40%;" onclick="openMtrnKeyboard(this, 'num', '3', '3', 'CVC번호 3자리를 정확히 입력해 주십시오', 'CVC번호 3자리를 초과했습니다.', pageObj.nextChk)"></div>
+                                    <input type="hidden" id="cvcNum" value=""/>
+                                    <input type="hidden" id="tk_cvcNum" value=""/>
+                                    <div  class="dash" style="padding-top: 5px;clear: both;width:initial; text-align:left">
+                                        ※ 카드 뒷면 CVC번호 3자리 입력
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 4DBC -->
+                            <tr class="4dbc" style="display:none">
+                                <th>4DBC번호</th>
+                                <td>
+                                    <div id="disp_4dbcNum" class="ip_txt_cd21" style="width:40%;" onclick="openMtrnKeyboard(this, 'num', '4', '4', '4DBC번호 4자리를 정확히 입력해 주십시오', '4DBC번호 4자리를 초과했습니다.', pageObj.nextChk)"></div>
+                                    <input type="hidden" id="4dbcNum" value=""/>
+                                    <input type="hidden" id="tk_4dbcNum" value=""/>
+                                    <div class="dash" style="padding-top: 5px;clear: both;width:initial; text-align:left">
+                                        ※ 카드 앞면 4DBC번호 4자리 입력
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- PERIOD -->
+                            <tr class="yymm">
+                                <th>유효기간</th>
+                                <td>
+                                    <div class="search_card_main">
+                                        <ul>
+                                            <li>
+                                                <div class="search_combo arrow">
+                                                    <select id="sel_year" onchange="pageObj.changeSelect()" class="aView">
+                                                        <option value="">년</option>
+                                                    </select>
+                                                    <div class="search_combo lc iView" style="display:none">
+                                                        <a onclick="pageObj.iosSelect('1')" id="iosSelect1" class="select combo2" style="overflow: hidden">년</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="search_combo arrow">
+                                                    <select id="sel_month" onchange="pageObj.changeSelect()" class="aView">
+                                                        <option value="">월</option>
+                                                    </select>
+                                                    <div class="search_combo lc iView" style="display:none">
+                                                        <a onclick="pageObj.iosSelect('2')" id="iosSelect2" class="select combo2" style="overflow: hidden">월</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    
+                                    <!-- 						<div id="disp_yearNum" class="ip_txt_cd21" tabindex="1" style="width:30%;" onkeypress="pageObj.nextChk();"></div>
+                                     <input type="hidden" id="yearNum" value=""/>
+                                     <span class="dash ml5" style="width:initial;"> / </span>
+                                     <div id="disp_monthNum" class="ip_txt_cd22" tabindex="2" style="width:30%;" onkeypress="pageObj.nextChk();"></div>
+                                     <input type="hidden" id="monthNum" value=""/>
+                                     <span class="dash ml5" style="width:initial;">년/월</span>
+                                     -->					</td>
+                            </tr>
+                            <!-- SECUR -->
+                            <tr>
+                                <th>카드비밀번호</th>
+                                <td>
+                                    <div id="disp_passNum" class="ip_txt_cd21" style="width:40%;" onclick="openMtrnKeyboard(this, 'num', '2', '2', '비밀번호 앞 2자리를 정확히 입력해 주십시오', '비밀번호 2자리를 초과했습니다.', pageObj.nextChk)"></div>
+                                    <input type="hidden" id="passNum" value=""/>
+                                    <input type="hidden" id="tk_passNum" value=""/>
+                                    <span class="dash ml5" style="width:initial;">X X</span>
+                                    <div class="dash" style="padding-top: 5px;clear: both;width:initial;">※ 비밀번호 앞 2자리 입력</div>
+                                </td>
+                            </tr>
+                            </tbody>
+				</table>
+			</div>
+		</fieldset>
+        
+		<div class="tc mt30">
+            <!-- 			<a href="javascript:commPage('P', 'LCMWC323', '', 'L')" class="btn_31">가입완료</a> -->
+			<a onclick="pageObj.LCMW3093()" class="btn_r31">확인</a>
+			<a onclick="pageObj.cancel()" class="btn_31">취소</a>
+		</div>
+	</div>
+</div>

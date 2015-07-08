@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>Club</title>
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    		<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+    		<link href="css/main.css" type=text/css rel=stylesheet>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+ 			<script src="socket.io/socket.io.js"></script>
+    	</head>
+		<body id="content" class="bg_depth01" onload="pageLoad('P', 'CLUB1000', this)">
+    		<!--application UI goes here-->
+   			<!-- container : s -->
+    		<script src="js/common.js"></script>
+    		<script src="js/main.js"></script>
+			<div id="wrap">
+			<div class="back-image">
+			</div>
+				<div id="mainContents">
+					<div id="pagePort"></div>
+					<div id="blank"></div>
+				</div>
+				<div id="header">
+					<h1>
+						<div id="_appTitle" style="width:80%;margin:auto" onclick="goMain()" class="ellipsis logo">다정다감</div>
+					</h1>
+					<ul class="left_btns">
+						<li><a id="leftBtn" class="menu" onclick="goMenu()"></a></li>
+					</ul>
+						<ul class="right_btns">
+						<li><a id="rightBtn" onclick="commPage('P', 'LCMW9300','', 'Y')" class="help"></a></li>
+						<li><a id="rightBtn" class="login"></a></li>
+					</ul>
+				</div>
+				<div class="fixed_top" id="nav_menu">
+					<!-- sub tab -->
+					<nav class="nav" id="mainNav">
+						<ul>
+							<li><a onclick="pageLoad('P', 'CLUB1000', this)">정모소식</a></li>
+							<li><a onclick="pageLoad('P', 'CLUB2000', this)">내모임소식</a></li>
+							<li><a onclick="pageLoad('P', 'CLUB3000', this)">내 모임</a></li>
+							<li><a onclick="pageLoad('P', 'CLUB4000', this)">전체 모임</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div id="contents_sub_web">
+				</div>
+	    	</div>
+	    		
+    	</body>
+</html>

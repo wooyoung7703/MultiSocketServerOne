@@ -1,0 +1,104 @@
+<!-- 스마트 영수증 캘린더 -->
+<script src="js/LCMW4/LCMW4000.js"></script>
+<div class="fixed_top85">
+	<div class="receipt_control cal" id="receipt_payment" style="height:50px">
+		<div class="both">
+			<ul class="view_type">
+				<li><a class="cal on">캘린더보기</a></li>
+				<li><a onclick="commPage('P', 'LCMW4100')" class="list">목록보기</a></li>
+				<li><a onclick="commPage('P', 'LCMW4200')" class="offer">오퍼보기</a></li>
+			</ul>
+<!-- 			<div class="payment" style="display:none;"> -->
+<!-- 				<div class="search_combo arrow" id="pay_info"> -->
+<!-- 					<a onclick="pageObj.LCMW4030()" style="position: absolute;font-weight: bold;right: 30px;top: 13px;font-size: 13px;">결제정보</a> -->
+<!-- 					<a onclick="pageObj.LCMW4030()" style="float: right;position:absolute;right:10px;top: 12px;width: 15px;height: 15px;border-radius:5px;background:#adadad url(images/ico/icon_accordionCnt.png);background-size:31px;background-position: right;"></a> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+		</div>
+		<div class="both result_payment" style="display:none;">
+			<strong style="padding: 10px 5px 5px 5px;font-size: 13px;" id="nx_stt_dt"></strong>
+		</div>
+<!-- 		<div id="result_payment" class="result_payment" style="display:none;padding: 10px;border: 1px solid #c2c6cc;border-radius: 5px;margin-bottom: 10px"></div> -->
+<!-- 		<div id="no_result" style="display:none;text-align: center;font-size: 13px;font-weight: bold;padding: 20px;">조회 결과가 없습니다.</div> -->
+	</div>
+</div>
+
+<div id="contents" class="wrap_news">
+	<div id="result_payment_div" class="payment_info" style="display: none;background-color: #fff;">
+		<ul id="result_payment"></ul>
+	</div>
+	<div id="no_result">조회 결과가 없습니다.</div>
+
+	<div class="calendar">
+		<div class="cal_head">
+			<h2 class="title"><span class="year"></span>년 <span class="month"></span>월</h2>
+			<a class="btn_prev" onclick="pageObj.pnMonth('P')">이전달</a>
+			<a class="btn_next" onclick="pageObj.pnMonth('N')">다음달</a>
+<!-- 			<span class="payday payment" style="display:none"><img src="images/ico/ico_payday.png" alt="결제예정일 표시 아이콘"> 결제 예정일</span> -->
+		</div>
+		<table>
+		<thead>
+		<tr id="calendar_week">
+			<th>일</th>
+			<th>월</th>
+			<th>화</th>
+			<th>수</th>
+			<th>목</th>
+			<th>금</th>
+			<th>토</th>
+		</tr>
+		</thead>
+		<tbody id="calendarBody">
+		</tbody>
+		</table>
+	</div>
+	<!-- // 캘린더 -->
+
+	<div class="both cal_caption">
+		<span class="left bul01">최근 3개월까지 표시됩니다.</span>
+		<span class="right">
+			<small class="confirm">확인</small>
+			<small>미확인</small>
+		</span>
+	</div>
+
+	<h2 id="detailDate" class="tit01 bul03" style="display:none;"></h2>
+	<!-- 내역이 없으면  -->
+	<div id="detailNoData" class="nodata_msg" style="display:none">
+		현재 스마트 영수증에 표시될 내역이 없습니다.
+	</div>
+	<!-- //내역이 없으면 -->
+	
+	<!-- 내역이 있으면 -->
+	<div id="detailData" class="receipt_wrap" style="display:none">
+		<ul class="receipt_detail" id="receipt_detail"></ul>
+	</div>
+	<!-- //내역이 있으면 -->
+</div>
+
+<textarea id="dataTmpl" style="display:none;">
+	<li id="li_{CD_APR_SEQ}" onclick="pageObj.chksmartReceipt('{CD_APR_SEQ}', '{APR_CAN_YN}', this);" class="noneli">
+		<a style="width:70%">
+			<strong class="tit">{MC_NM}</strong>
+			<div class="both">
+				<strong class="price left" id="app_em_{CD_APR_SEQ}">{INT_MT} : {TMP_PRICE}</strong>
+				<span class="icons left" style="float:right;" id="icons_{CD_APR_SEQ}"></span>						
+			</div>
+		</a>
+ 		<a onclick="payCancel('{CD_APR_SEQ}', '{MC_NM}', '{APR_AM}', 'LCMW4000');" class="btn_d28 btn_small btn_cancel" style="display: none;">승인취소</a> 
+	</li>
+</textarea>
+
+<textarea id="paymentDtTmpl" style="display:none;">
+	<li>
+		<dl id='card_{ACCOUNT_DC}'>
+			<dt style="width:15%">{ACCOUNT}</dt>
+		</dl>
+	</li>
+</textarea>
+<textarea id="paymentDdTmpl" style="display:none;">
+	<dd style="width:80%">
+		<span class='l pc02'>{TMP_BNK_NM}</span>
+		<span class='r pc01'>{TOD_BIL_AM}원</span>
+	</dd>
+</textarea>

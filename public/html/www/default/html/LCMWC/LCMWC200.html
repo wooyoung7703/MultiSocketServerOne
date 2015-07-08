@@ -1,0 +1,146 @@
+<!-- 본인인증 -->
+<script src="js/LCMWC/LCMWC200.js"></script>
+
+<div class="fixed_top excepIos">
+	<ul class="step01 step_depth3">
+		<li>약관동의</li>
+		<li class="on">본인인증</li>
+		<li>비밀번호설정</li>
+	</ul>
+</div>
+
+<div id="contents" class="wrap_step">
+	<div class="mw01">
+		<h2 class="tit02 mt30">휴대폰 인증</h2>
+		<fieldset class="sp10 mt12">
+			<legend>휴대폰 인증</legend>
+			<div class="tf01">
+				<table>
+					<colgroup>
+						<col style="width:31%;" />
+						<col style="width:auto;" />
+					</colgroup>
+					<tbody>
+					<tr> 
+						<th>이름(실명)</th>
+						<td><input type="text" class="ip_txt" style="width:100%" id="ur_nm" onkeyup="chkByte(this, 40);" onblur="onlyHanEn(this);" onkeydown="if(event.keyCode == 13){jq('#ur_rrno1').focus();return false;}" maxlength="40"/></td>
+					</tr>
+					<tr>
+						<th>
+							생년월일<br/>
+							(예:19940101)	
+						</th>
+						<td>
+							<input type="tel" class="ip_txt" style="width:100%" id="ur_rrno1" maxlength="8" placeholder="생년월일 (예:19940101)" onkeyup="onlyNum(this);"/>
+						</td>
+					</tr>
+					<tr>
+						<th>성별</th>
+						<td>
+							<label data-name="sex_dc" data-value="F" onclick="pageObj.chkRadio(this);" class="radio radio_on" style="width:30%" >여</label>
+							<label data-name="sex_dc" data-value="M" onclick="pageObj.chkRadio(this);" class="radio" style="width:30%" >남</label>
+						</td>
+					</tr>
+					<tr>
+						<th>구분</th>
+						<td>
+							<label data-name="fgn_Gbn" data-value="1" onclick="pageObj.chkRadio(this);" class="radio radio_on" style="width:30%" >내국인</label>
+							<label data-name="fgn_Gbn" data-value="2" onclick="pageObj.chkRadio(this);" class="radio" style="width:30%" >외국인</label>
+						</td>
+					</tr>
+					<tr>
+						<th>통신사</th>
+
+ 						<td>
+							<ul>
+								<li>
+									<div class="search_combo arrow">
+										<select id="telecom" onchange="pageObj.changeSelect(this)" class="aView">
+									    	<option value="">통신사선택</option>
+									    </select>
+									    <div class="search_combo lc iView" style="display:none">
+											<a onclick="pageObj.iosSelect(this)" id="iosSelect" class="select combo2" style="overflow: hidden">통신사선택</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</td>
+						
+<!-- 						<td>
+							<label data-name="mmt_tcc_codc" data-value="SKT" onclick="pageObj.chkRadio(this);" class="radio" style="width:15%" >SK</label>
+							<label data-name="mmt_tcc_codc" data-value="KTF" onclick="pageObj.chkRadio(this);" class="radio" style="width:15%" >KT</label>
+							<label data-name="mmt_tcc_codc" data-value="LGT" onclick="pageObj.chkRadio(this);" class="radio" style="width:17%" >LGU+</label>
+						</td>
+ -->					</tr>
+					<tr>
+						<th>휴대폰</th>
+						<td>
+							<input type="tel" class="ip_txt" style="width:100%;margin-bottom: 5px;" id="cell_no" maxlength="11" onkeyup="onlyNum(this);" placeholder="휴대폰 번호 -없이 입력"/>
+							<br/>
+							<a onclick="pageObj.certNumSend();" class="btn_w28" style="width:100%;float: right;" id="sendNum">인증번호전송</a>
+						</td>
+					</tr>
+					<tr>
+						<th>인증번호입력</th>
+						<td>
+							<input type="tel" class="ip_txt" style="width:48%" id="rd_no" maxlength="6" onkeyup="onlyNum(this);"/>
+							<a onclick="pageObj.certNumChk();" class="btn_w28" style="width:49%" id="btnCertOk">인증확인</a>
+							<div id="remainTime" style="color:red; margin-top:5px;"></div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</fieldset>
+		<ul class="desc_bul sp10 mt30">
+			<li>롯데카드 클러치 서비스는 본인인증 후 이용하실 수 있습니다.</li>
+		</ul>
+		
+		<div class="tit_both mt20">
+			<h3 class="tit02 mt5 left">본인 인증 약관 동의</h3>
+			<span class="right mr10">
+				<label class="check check_right" id="allCheck" onclick="allCheckBox();">전체 동의</label>
+			</span>
+		</div>
+		
+		<fieldset class="sp10 mt12">
+			<legend>본인 인증 약관 동의</legend>
+			<div  class="tf01">
+				<table>
+					<colgroup>
+						<col style="width:59%;" />
+						<col style="width:auto;" />
+					</colgroup>
+					<tbody id="agreeList"></tbody>
+				</table>
+			</div>
+		</fieldset>
+		
+		<ul class="desc_bul sp10 mt30">
+			<li>고객님의 정보는 항상 암호화되어 처리되고 있습니다.</li>
+			<li>인증번호는 1분 30초 이내에 입력해야 합니다.</li>
+			<li>시간초과시 "재전송"을 선택해주세요.</li>
+		</ul>
+
+		<div class="tc mt30">
+			<a id="nextBtn" class="btn_31" onclick="pageObj.next();">다음</a>
+			<a onclick="pageObj.cancel()" class="btn_31">취소</a>
+		</div>
+	</div>
+</div>
+
+<textarea id="dataTmpl" style="display:none;">
+	<tr>
+		<th>{PRV_SUB_NM}</th>
+		<td class="tr">
+			<a class="btnGrayB" onclick="pageObj.certView('{GRP_ID}', '{PRV_SEQ}', '{PRV_VER_NO}', '{PRV_SUB_NM}')">약관보기</a>
+			<label class="check check_right chk_check">
+				<input type="hidden" value="{PRV_SEQ}"/>
+				<input type="hidden" value="{PRV_VER_NO}"/>
+				<input type="hidden" value="{PRV_AG_MYN}"/>
+				<input type="hidden" value="{PRV_SUB_NM}"/>
+				<input type="hidden" value="{GRP_ID}"/>
+			</label>
+		</td>
+	</tr>
+</textarea>

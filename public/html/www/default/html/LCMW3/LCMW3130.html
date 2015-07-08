@@ -1,0 +1,50 @@
+<!-- My wallet - 멤버스 카드 직접등록 -->
+<script src="js/LCMW3/LCMW3130.js"></script>
+
+<div id="contents">
+	<p class="desc01">
+		멤버십 정보를 입력하여 등록해 주십시오.
+	</p>
+	<div class="template_card">
+		<img src="images/img/img_tem01.png" class="card" id="card_img">
+	</div>
+
+	
+	<fieldset class="mt15">
+		<legend>멤버십 정보입력</legend>
+		<h3 class="tit02 ">멤버십 카드명</h3>
+		<div class="tf01 sp10 mt5">
+			<table>
+			<colgroup>
+				<col style="width:100%;">
+			</colgroup>
+			<tbody>
+			<tr>
+				<td><input id="cdnm" type="text" class="ip_txt" style="width:100%;" placeholder="카드명을 입력해주세요." onkeyup="chkByte(this, 40);"></td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+		
+		<h3 class="tit02 mt20">멤버십 번호</h3>
+		<div class="tf01 sp10 mt5">
+			<table>
+			<colgroup>
+				<col style="width:100%;">
+			</colgroup>
+			<tbody>
+			<tr>
+				<td><input id="cdno" type="tel" class="ip_txt" style="width:100%;" maxlength="16" onkeyup="onlyNum(this);" placeholder="멤버십 번호를 입력해주세요."></td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</fieldset>
+	
+	<div class="tc mt30">
+		<a onclick="pageObj.LCMW3130()" class="btn_31">등록</a>
+	</div>
+	<div class="desc_box mt30">
+		직접등록을 통해 L.POINT 카드를 추가하실 경우, <b>제휴사 매장에서 바코드 이용 시</b> L.POINT 적립만 가능하오니 이용에 참고해주시기 바랍니다. (※ 포인트 사용 불가)
+	</div>
+</div>

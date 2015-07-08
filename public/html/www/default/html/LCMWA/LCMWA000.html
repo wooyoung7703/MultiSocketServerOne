@@ -1,0 +1,19 @@
+<!-- Family Link -->
+<script src="js/LCMWA/LCMWA000.js"></script>
+
+<div id="contents" class="pb0">
+	<ul class="list01 family_link" id="family_link_list"></ul>
+</div>
+
+<textarea id="dataTmpl" style="display:none;">
+	<li>
+		<div>
+			<figure class="icon">
+				<img src="{APP_IMG_PH_NM}"/>
+			</figure>
+			<strong>{MOB_APP_NM}</strong>
+			<span>{SV_CRCT_CN}</span>
+			<a id="family_btn_{MOB_APP_ID}" onclick="familyApp('{MOB_APP_NM}', '{AROS_PKG_NM}', '{IPN_URI_SCHM_NM}', '{IPN_DLD_URL}')"></a>
+		</div>
+	</li>
+</textarea>

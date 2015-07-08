@@ -1,0 +1,71 @@
+<!-- 카드신청 - 카드리스트 -->
+<script src="js/LCMW7/LCMW7000.js"></script>
+
+<div id="contents" class="pb0">
+	<h2 class="tit01">인기카드 리스트</h2>
+	<ul class="list01 list01_p10 popular_list" id="popular_list"></ul>
+</div>
+
+<textarea id="dataTmpl" style="display:none;">
+	<li>
+		<a onclick="pageObj.LCMW7100('{UNIT_CD_C}');" class="stpDetail" style="padding:10px 22px 10px 10px;">
+			<img src="{CD_IMG_NM}" />
+			<div>
+				<strong>{VT_CD_KND_NM}</strong>
+				<span>
+					{CD_EPL_SMR_CN}
+				</span>
+				<small>연회비 {BAS_AFE}</small>
+			</div>
+		</a>
+	</li>
+</textarea>
+
+<div id="cardDetailPop" style="display:none;"></div>
+<textarea id="cardDetailTmpl" style="display:none;">
+	<a class="cdBtnPop" id="idx{CD_PD_KND_C}"></a>
+	<div id="pop_title_idx{CD_PD_KND_C}" style="display:none">카드상세</div>
+	<div id="pop_cont_idx{CD_PD_KND_C}" style="display:none">
+		<h2 class="tit01">혜택안내</h2>
+	
+		<dl class="card_detail">
+			<dt>{VT_CD_KND_NM}</dt>
+			<dd class="img"><img src="{CD_IMG_NM2}" alt="" /></dd>
+			<dd>
+				<ul id="detail_ul">
+					<li><b>브랜드</b></li>
+					<li><b>등급</b></li>
+					<li><b>디자인</b></li>
+				</ul>
+				<div class="tr">
+					<a class="btn_r28 btn_small" onclick="pageObj.LCMW7210('{VT_CD_KND_NM}')">간편신청</a>
+				</div>
+			</dd>
+		</dl>
+	
+		<ul class="list_acc card_detail_list" id="list_acc"></ul>
+	</div>
+</textarea>
+<textarea id="listAccTmpl" style="display:none;">
+	<li class="list_acc_li">
+		<a><strong class="bul01">{FVR_NM}</strong></a>
+		<div class="CardDetailView" style="overflow: hidden;">{TMP_FVR_CN}</div>
+	</li>
+</textarea>
+
+
+<!-- <div id="cardEventPop" style="display:none;"></div> -->
+<!-- <textarea id="cardEventTmpl" style="display:none;"> -->
+<!-- 	<a class="evnBtnPop" id="idxEvent"></a> -->
+<!-- 	<div id="pop_title_idxEvent" style="display:none">간편신청</div> -->
+<!-- 	<div id="pop_cont_idxEvent" style="display:none"> -->
+<!-- 		<div class="tit_news"> -->
+<!-- 			<h2 class="tit">{EVN_NM}</h2> -->
+<!-- 			<small>{EVN_SDT} ~ {EVN_EDT}</small> -->
+<!-- 		</div> -->
+
+<!-- 		<div class="p10"> -->
+<!-- 			<img src="{EVN_DTL_IMG_PH_NM}" style="width:100%" /> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </textarea> -->

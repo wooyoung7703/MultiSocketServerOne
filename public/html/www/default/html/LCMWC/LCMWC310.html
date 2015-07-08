@@ -1,0 +1,72 @@
+<!-- 가입완료 -->
+<script src="js/LCMWC/LCMWC310.js"></script>
+
+<div id="contents">
+	<dl class="msg_dl">
+		<dt>
+			<strong class="tit">롯데카드 클러치 가입이 완료되었습니다.</strong>
+		</dt>
+		<dd style="display:none" id="joinmem">
+			<p>고객님은 멤버스회원입니다.</p>
+			<p>카드회원으로 가입하시면 '스마트영수증'도 받아보실 수 있습니다.</p>
+			<div class="mt30 tc">
+				<a onclick="pageObj.pagecancel()" class="btn_31" style="width: 35%;">확인</a>
+			</div>
+		</dd>
+		<dd style="display:none" id="joinsms">
+			<strong class="tit">SMS서비스 안내</strong>
+			<p>고객님은 SMS서비스 미신청 회원입니다.</p>
+			<p>카드 이용 안내 정보를 등록한 휴대폰으로<br />실시간 전송해 드리는 서비스 입니다. SMS 문자<br />발송을 통해 신용카드 도난, 분실로 인한 금융사고를<br />방지할 수 있습니다.</p>
+			<p>SMS 가입 시 클러치에서 제공하는 '스마트영수증'도 함께 받아보실 수 있습니다.</p>
+			<div class="mt15 tc">
+				<a onclick="commPage('P', 'LCMWC321', '', 'L')" class="btn_31">SMS 서비스 신청</a>
+				<a onclick="pageObj.pagecancel()" class="btn_31 btn_g">나중에 하기</a>
+			</div>
+		</dd>
+		<dd style="display:none" id="join">
+			<p>고객님은 SMS 서비스 가입회원입니다.</p>
+			<p>클러치에서 제공하는 '스마트영수증'도 함께 받아보실 수 있습니다.</p>
+			<div class="mt30 tc">
+				<a onclick="pageObj.goMain()" class="btn_31">확인</a>
+			</div>
+		</dd>
+		<dd style="display:none" id="main">
+			<img id="offer_img" src="images/img/offer_gift_img.png" style="width: 35%;">
+			<p>클러치가 드리는 <strong>첫 선물</strong>을 선택해 주세요.</p>
+		</dd>
+		<dd id="smart_help">
+			<strong class="tit">'스마트 영수증' 이란?</strong>
+			<p>기존SMS 서비스보다 이런 점이 좋아요!</p>
+			<ol>
+				<li><em class="pc02">하나.</em>사용시마다 L.POINT 정보와 이용내역 실시간 알림은 기본!</li>
+				<li><em class="pc02">둘.</em>사용처 주변의 이벤트 정보와 카드 혜택 알림!</li>
+				<li><em class="pc02">셋.</em>실물 영수증 모양으로 보관이 편리하며 언제든 조회 가능!</li>
+    			<li>스미싱 등 불법 SMS와 구별되어 보다 안전함!</li>
+			</ol>
+		</dd>
+		<dd id="new_offer" style="display:none">
+			<ul id="offer_list">
+			</ul>
+		</dd>
+	</dl>
+	<div id="offer_btn" class="mt30 tc" style="display: none">
+		<a onclick="pageObj.offerOk()" class="btn_31">선택 완료</a>
+	</div>
+	<div id="sms_btn" class="mt30 tc" style="display:none">
+		<a onclick="pageObj.pagecancel()" class="btn_31">확인</a>
+	</div>
+	<img id="smart_img" src="images/img/img_receipt.png" style="width: 100%;padding-top: 10px;">
+</div>
+<iframe id="eventFrame" style="display:none"></iframe>
+
+<div id="eventPop" style="position: fixed;background: #fff;width: 90%;height: 70%;top: 10%;z-index: 1001;left: 5%;display:none">
+	<div style="position: absolute;top: 3px;right: 0;width: 40px;height: 40px;z-index: 1;" onclick="pageObj.eventPop(false)">
+		<img src="images/btn/btn_evt_close.png" style="width: 60%;height: 60%;padding: 5px;">
+	</div>
+	<div style="position: absolute;top: 0;left: 0;width: 100%;">
+		<img id="eventImgView" src="" style="width: 100%;">
+	</div>
+	<div class="tc mt20" style="position: absolute;width: 100%;bottom: 5%;">
+		<a onclick="pageObj.eventPop(true);" class="btn_31 btn_r">앱카드(간편결제) 다운로드</a>
+	</div>
+</div>

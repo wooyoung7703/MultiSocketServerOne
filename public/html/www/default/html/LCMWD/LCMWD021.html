@@ -1,0 +1,111 @@
+<!-- 모바일 명세서 -->
+<script src="js/LCMWD/LCMWD021.js"></script>
+
+<div id="contents">
+	<div class="tf01 m10">
+		<table>
+		<colgroup>
+			<col style="width:45%;">
+			<col style="width:auto;">
+		</colgroup>
+		<tbody id="boxSimpleOut"></tbody>
+		</table>
+	</div>
+
+	<ul class="list01 bt01" id="dedailViewList"></ul>
+
+	<dl class="guide_box">
+		<dt><a>이용안내를 꼭 확인해 주시기 바랍니다.</a></dt>
+		<dd>
+			<ul class="desc_bul">
+				<li>출처가 불분명하거나 보안설정이 없는 무선랜(WiFi)은 사용하지 마시고, 이동통신망(3G, 4G 등)을 이용하시기 바랍니다. 단, 가입하신 요금제에 따라 데이터 사용요금이 부과될 수 있습니다.</li>
+				<li>WiFi나 이동통신망 속도가 느릴 경우, 홈페이지(<a onclick="webPage('www.lottecard.co.kr')">www.lottecard.co.kr</a>) 또는 상담 ARS 1588-8100 서비스를 이용하시기 바랍니다.</li>
+				<li>금융서비스, 즉시결제 등의 서비스를 사용하시는 중에 서버통신 오류 등이 발생할 경우, 홈페이지에서 처리내역을 반드시 확인하시기 바랍니다.</li>
+				<li>이용에 대한 자세한 내역은 롯데카드 홈페이지(<a onclick="webPage('www.lottecard.co.kr')">www.lottecard.co.kr</a>)에서 확인하실 수 있습니다.</li>
+			</ul>
+		</dd>
+	</dl>
+</div>
+
+<textarea id="boxSimpleOutTmpl" style="display:none;">
+	<tr>
+		<th>일시불/할부 이용기간</th>
+		<td class="tr pc02"><span class="lb">{rsAButilSDt} ~ {rsAButilEDt}</span></td>
+	</tr>
+	<tr>
+		<th>단기카드대출<br>(현금서비스)사용기간</th>
+		<td class="tr pc02"><span class="lb">{rsCButilSDt} ~ {rsCButilEDt}</span></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<dl class="dl01">
+				<dt>카드이용 합계</dt>
+				<dd>
+					<strong class="left">원금</strong>
+					<span class="right">{TMP_A1} 원</span>
+				</dd>
+				<dd>
+					<strong class="left">수수료</strong>
+					<span class="right">{TMP_A4} 원</span>
+				</dd>
+				<dd>
+					<strong class="left">합계</strong>
+					<span class="right"><span class="pc01">{CARDTOTAL}</span> 원</span>
+				</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr style="display:{card_me}">
+		<td colspan="2">
+			<dl class="dl01">
+				<dt>가족별소계(본인)</dt>
+				<dd>
+					<strong class="left">원금</strong>
+					<span class="right">{TMP_A2} 원</span>
+				</dd>
+				<dd>
+					<strong class="left">수수료</strong>
+					<span class="right">{TMP_A5} 원</span>
+				</dd>
+				<dd>
+					<strong class="left">합계</strong>
+					<span class="right"><span class="pc01">{METOTAL}</span> 원</span>
+				</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr style="display:{card_fam}">
+		<td colspan="2">
+			<dl class="dl01">
+				<dt>가족별소계(가족)</dt>
+				<dd>
+					<strong class="left">원금</strong>
+					<span class="right">{TMP_A3} 원</span>
+				</dd>
+				<dd>
+					<strong class="left">수수료</strong>
+					<span class="right">{TMP_A6} 원</span>
+				</dd>
+				<dd>
+					<strong class="left">합계</strong>
+					<span class="right"><span class="pc01">{FAMTOTAL}</span> 원</span>
+				</dd>
+			</dl>
+		</td>
+	</tr>
+</textarea>
+
+<textarea id="dedailViewListTmpl" style="display:none;">
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('10')"><span class="left">할부 내역</span><span class="right mr10"><strong class='pc01'>{B1_SUM}</strong> 원</span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('20')"><span class="left">장기카드대출(카드론) 내역</span><span class="right mr10"><strong class='pc01'>{B2_SUM}</strong> 원</span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('40')"><span class="left">일시불 내역</span><span class="right mr10"><strong class='pc01'>{B3_SUM}</strong> 원</span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('50')"><span class="left">단기카드대출(현금서비스) 내역</span><span class="right mr10"><strong class='pc01'>{B4_SUM}</strong> 원</span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('60')"><span class="left">수수료 내역</span><span class="right mr10"><strong class='pc01'>{B5_SUM}</strong> 원</span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('68')"><span class="left">일부결제금액이월약정 해지잔액 내역</span><span class="right mr10"><strong class='pc01'>{B6_SUM}</strong> 원</span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('70')"><span class="left">체크카드 내역</span><span class="right mr10"><strong class='pc01'>{B7_SUM}</strong> 원</span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('0')"><span class="left">전월취소 내역</span><span class="right mr10"></span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('1')"><span class="left">해외상세 내역</span><span class="right mr10"></span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('90')"><span class="left">유이자할부 내역</span><span class="right mr10"></span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('95')"><span class="left">통신요금 이월 상세내역</span><span class="right mr10"></span></a></li>
+	<li><a class="both stpDetail" onclick="pageObj.LCMWD031('96')"><span class="left">알뜰 결제 프로모션 이용내역 안내</span><span class="right mr10"></span></a></li>
+</textarea>
