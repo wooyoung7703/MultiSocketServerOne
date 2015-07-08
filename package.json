@@ -1,11 +1,6 @@
 {
   "name": "MultiSocketServerOne",
   "version": "0.1.0",
-  "dependencies": {
-  	"socket.io": "latest", 
-  	"winston": "latest", 
-  	"express": "latest"
-  },
   "description": "MultiSocketServerOne",
   "main": "web.js",
   "scripts": {
