@@ -1,4 +1,0 @@
-pageObj.pageFunction = function(obj){
-
-
-};
