@@ -48,7 +48,7 @@ exports.server = function (){
 		    });
 	    }
 	    
-	    }).listen(3000,ip2, function(){
+	    }).listen(8001, function(){
 //	    console.log('Server running at http:/127.0.0.1:52273');
 		  var host = returnvalue.address().address;
 		  var port = returnvalue.address().port;
