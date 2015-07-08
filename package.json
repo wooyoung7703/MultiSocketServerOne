@@ -1,6 +1,10 @@
 {
   "name": "MultiSocketServer",
   "version": "0.1.0",
+  "dependencies": {
+        "socket.io": "latest"
+      , "express": ">= 2.5.9"
+  },
   "description": "MultiSocketServer",
   "main": "hello-world-server.js",
   "scripts": {
